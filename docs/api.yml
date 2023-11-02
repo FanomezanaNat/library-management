@@ -75,4 +75,15 @@ components:
           format: date
     author:
       type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        sex:
+          type: string
+          enum:
+            - M
+            - F
+          
      

@@ -6,7 +6,7 @@ This OpenAPI spec defines the Library API, allowing you to manage books and auth
 
 - **Title:** Library API
 - **Version:** 1.0.0
-- **Description:** STD22001
+- **Description:** STD22005
 - **Base URL:** [https://library.com](https://library.com)
 
 ## Endpoints

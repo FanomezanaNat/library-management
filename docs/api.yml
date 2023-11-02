@@ -55,6 +55,7 @@ paths:
       parameters:
         - in: query
           name: return authors by given name
+          required: false
           schema:
             type: string
       responses:

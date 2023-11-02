@@ -18,6 +18,20 @@ paths:
           required: false
           schema:
             type: string
+        - in: query
+          name: startDate
+          description: Start date of the release interval
+          required: false
+          schema:
+            type: string
+            format: datetime
+        - in: query
+          name: endDate
+          description: End date of the release interval
+          required: false
+          schema:
+            type: string
+            format: datetime
         #TODO3: add parameter to filter books by intervals of dates of the releaseDate
       responses:
         200:
@@ -49,6 +63,7 @@ paths:
                   $ref: '#/components/schemas/Book'
 
   /authors:
+    #TODO2: complete GET (can be filtered by name) - PUT - DELETE
     get:
       summary: get all authors
       operationId: getAuthors
@@ -100,7 +115,6 @@ paths:
           description: author deleted
   
   
-  #TODO2: complete GET (can be filtered by name) - PUT - DELETE
 components:
   schemas:
     Book:
@@ -111,8 +125,9 @@ components:
         bookName:
           type: string
         author:
+                  #TODO1: set it as a component with properties : id, name, sex (M or F)
+
           $ref: "#/components/schemas/Author"
-          #TODO1: set it as a component with properties : id, name, sex (M or F)
           type: string
         pageNumbers:
           type: integer

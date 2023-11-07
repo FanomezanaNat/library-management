@@ -128,7 +128,7 @@ paths:
   /books/{bookId}/authors/{authorId}:
     put:
       summary: update book's author
-      operationId: updateBookAuthor
+      operationId: updateBookIdAuthorId
       parameters:
         - name: bookId
           description: book's id to update
@@ -147,8 +147,21 @@ paths:
           description: Author of the book updated successfully
          404:
           description: author or book's id not found
-
-  
+  /books/authors:
+    put:
+      summary: update book's authod
+      operationId: updateBookAuthor
+      requestBody:
+        content:
+          application/json:
+            schema : 
+              type: array
+              $ref: "#/components/schemas/UpdateBookAuthor"
+      responses:
+        200:
+          description: Authors for books updated successfully
+        404:
+          description: authors or books not found
 components:
   schemas:
     Book:

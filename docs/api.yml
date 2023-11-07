@@ -127,6 +127,8 @@ paths:
           description: author deleted
   /books/{bookId}/authors/{authorId}:
     put:
+      tags:
+        - "books"
       summary: update book's author
       operationId: updateBookIdAuthorId
       parameters:
@@ -149,6 +151,8 @@ paths:
           description: author or book's id not found
   /books/authors:
     put:
+      tags:
+        - "books"
       summary: update book's authod
       operationId: updateBookAuthor
       requestBody:

@@ -8,6 +8,7 @@ servers:
 tags:
   - name: books
   - name: authors
+  - name: books and authors relation
 paths:
   /books:
     get:
@@ -139,6 +140,7 @@ paths:
           description: author deleted
   /authors/page/{page}/size/{size}:
     get:
+      summary: retrieve authors with pagination
       tags:
         - "authors"
       parameters:
@@ -161,8 +163,8 @@ paths:
   /books/{bookId}/authors/{authorId}:
     put:
       tags:
-        - "books"
-      summary: update book's author
+        - "books and authors relation"
+      summary: update author of a book
       operationId: updateBookIdAuthorId
       parameters:
         - name: bookId
@@ -185,7 +187,7 @@ paths:
   /books/authors:
     put:
       tags:
-        - "books"
+        - "books and authors relation"
       summary: update book's author
       operationId: updateBookAuthor
       requestBody:

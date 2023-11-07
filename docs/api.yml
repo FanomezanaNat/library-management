@@ -70,7 +70,6 @@ paths:
                   $ref: '#/components/schemas/Book'
 
   /authors:
-    #TODO2: complete GET (can be filtered by name) - PUT - DELETE
     get:
       tags:
         - "authors"
@@ -148,8 +147,6 @@ paths:
           description: Author of the book updated successfully
          404:
           description: author or book's id not found
-       
-
 
   
 components:
@@ -192,6 +189,14 @@ components:
         releaseDate:
           type: string
           format: datetime
+
+    UpdateBookAuthor:
+      type: object
+      properties:
+        bookId: 
+          type: string
+        authorId:
+          type: string
 
           
      

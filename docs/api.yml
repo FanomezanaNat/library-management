@@ -185,7 +185,8 @@ paths:
           application/json:
             schema : 
               type: array
-              $ref: "#/components/schemas/UpdateBookAuthor"
+              items:
+                $ref: "#/components/schemas/UpdateBookAuthor"
       responses:
         200:
           description: Authors for books updated successfully

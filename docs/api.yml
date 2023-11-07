@@ -93,19 +93,6 @@ paths:
           required: false
           schema:
             type: string
-        - in: path
-          name: page
-          required: false
-
-          schema:
-            type: integer
-            default: 1
-        - in: path
-          name: pageSize
-          required: false
-          schema:
-            type: integer
-            default: 50
       responses:
         200:
           description: the list of filtered authors
@@ -150,6 +137,27 @@ paths:
       responses:
         204:
           description: author deleted
+  /authors/page/{page}/size/{size}:
+    get:
+      tags:
+        - "authors"
+      parameters:
+        - in: path
+          name: page
+          schema:
+            type: integer
+            default: 1
+          required: true
+        - in: path
+          name: pageSize
+          schema:
+            type: integer
+            default: 50
+          required: true
+      responses:
+        200:
+          description: OK
+
   /books/{bookId}/authors/{authorId}:
     put:
       tags:

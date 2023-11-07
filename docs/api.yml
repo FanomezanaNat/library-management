@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Library API
-  version: 1.0.0
+  version: 1.0.1
   description: STD22005
 servers:
   - url: https://library.com
@@ -165,5 +165,24 @@ components:
           enum:
             - M
             - F
+    crupdateBook:
+      type: object
+      properties:
+        id:
+          type: string
+        bookName:
+          type: string
+        pageNumbers:
+          type: integer
+        topic:
+          type: string
+          enum:
+            - ROMANCE
+            - COMEDY
+            - OTHER
+        releaseDate:
+          type: string
+          format: datetime
+
           
      

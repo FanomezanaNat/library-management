@@ -126,7 +126,31 @@ paths:
       responses:
         204:
           description: author deleted
-  
+  /books/{bookId}/authors/{authorId}:
+    put:
+      summary: update book's author
+      operationId: updateBookAuthor
+      parameters:
+        - name: bookId
+          description: book's id to update
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: authorId
+          description: new author's id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+         200:
+          description: Author of the book updated successfully
+         404:
+          description: author or book's id not found
+       
+
+
   
 components:
   schemas:

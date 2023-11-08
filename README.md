@@ -37,4 +37,4 @@ This OpenAPI spec defines the Library API, allowing you to manage books and auth
 
 ## Usage
 
-Interact with the API via HTTP clients or explore it in [Swagger UI](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/FanomezanaNat/library-management/oas-td2-STD22005/docs/api.yml).
+Interact with the API via HTTP clients or explore it in [Swagger UI](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/FanomezanaNat/library-management/oas-td3-STD22005/docs/api.yml).

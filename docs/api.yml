@@ -289,3 +289,21 @@ components:
           size:
             type: integer
             default : 50fanomezana@X555LPB:~/Vidéos/library-management/docs$ 
+  responses:
+    200:
+      $ref: "#/components/schemas/Response200"
+      description: operation successfully
+    400:
+      $ref: "#/components/schemas/Response400"
+      description: Bad resquest
+    403:
+      $ref: "#/components/schemas/Response403"
+      description: Forbidden
+    500:
+      $ref: "#/components/schemas/Response500"
+      description: Internal server error
+
+
+
+
+    

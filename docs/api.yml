@@ -239,27 +239,16 @@ components:
           type: string
 
   parameters:
-    pageQueryPagination:
-      name: page
-      in: query
-      schema:
-        type: integer
-        default: 1
-
-    pageSizeQueryPagination:
-      name: pageSize
-      in: query
-      schema:
-        type: integer
-        default: 50
-
     QueryPagination:
       name: QueryPagination
       in: query
+      required: false
       schema:
+        type: object
         properties:
           page:
-        $ref: "#/components/parameters/pageQueryPagination"
-        pageSize:
-          $ref: "#/components/parameters/pageSizeQueryPagination"
-    
+            type: integer
+            default: 1
+          pageSize:
+            type: integer
+            default: 50

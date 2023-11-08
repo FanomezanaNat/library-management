@@ -228,6 +228,16 @@ components:
           type: string
         authorId:
           type: string
+    status: 
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+    body:
+      type: object
+    
 
   parameters:
     QueryPagination:
@@ -257,4 +267,3 @@ components:
           size:
             type: integer
             default : 50
-          

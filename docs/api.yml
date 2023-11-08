@@ -237,6 +237,14 @@ components:
           type: string
     body:
       type: object
+    BaseResponse:
+      type: object
+      properties:
+        status:
+          $ref: "#/components/schemas/status"
+        body:
+          $ref: "#/components/schemas/body"
+
     
 
   parameters:
@@ -266,4 +274,4 @@ components:
             default : 1
           size:
             type: integer
-            default : 50
+            default : 50fanomezana@X555LPB:~/Vidéos/library-management/docs$ 

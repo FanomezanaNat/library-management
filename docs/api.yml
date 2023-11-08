@@ -38,18 +38,6 @@ paths:
           schema:
             type: string
             format: datetime
-        - in: query
-          name: page
-          required: false
-          schema:
-            type: integer
-            default: 1
-        - in: query
-          name: pageSize
-          required: false
-          schema:
-            type: integer
-            default: 50
 
       responses:
         200:
@@ -59,7 +47,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Book'
+                  $ref: "#/components/schemas/Book"
     put:
       tags:
         - "books"
@@ -71,7 +59,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/Book'
+                $ref: "#/components/schemas/Book"
       responses:
         200:
           description: The list of created or updated books
@@ -80,7 +68,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Book'
+                  $ref: "#/components/schemas/Book"
 
   /authors:
     get:
@@ -100,9 +88,9 @@ paths:
           content:
             application/json:
               schema:
-               type: array
-               items:
-                $ref: '#/components/schemas/Author'
+                type: array
+                items:
+                  $ref: "#/components/schemas/Author"
     put:
       tags:
         - "authors"
@@ -114,7 +102,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/Author'
+                $ref: "#/components/schemas/Author"
       responses:
         200:
           description: The list of created or updated authors
@@ -123,7 +111,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Author'
+                  $ref: "#/components/schemas/Author"
     delete:
       tags:
         - "authors"
@@ -180,9 +168,9 @@ paths:
           schema:
             type: string
       responses:
-         200:
+        200:
           description: Author of the book updated successfully
-         404:
+        404:
           description: author or book's id not found
   /books/authors:
     put:
@@ -193,7 +181,7 @@ paths:
       requestBody:
         content:
           application/json:
-            schema : 
+            schema:
               type: array
               items:
                 $ref: "#/components/schemas/UpdateBookAuthor"
@@ -210,8 +198,7 @@ components:
       properties:
         author:
           $ref: "#/components/schemas/Author"
-          
-        
+
     Author:
       type: object
       properties:
@@ -246,21 +233,17 @@ components:
     UpdateBookAuthor:
       type: object
       properties:
-        bookId: 
+        bookId:
           type: string
         authorId:
           type: string
 
-#2)
-  #i-UpdateBookAuthor n'inclut que les identifiants car il est destiné à la mise à jour des relations entre les livres et les auteurs, sans 
-  # modifier leurs autres propriétés individuelles.
-#
-  #ii- UpdateBookAuthor ne devrait inclure les propriétés de CrupdateBook et Author que si vous avez besoin de mettre à jour l'ensemble des 
-  #  propriétés de ces entités en même temps que la mise à jour de leurs relations. La conception dépend des besoins spécifiques de votre application.
-#
-#4)
-  # a- Oui,gérer la pagination à travers les entêtes de la requête est possible, mais peu courant. Les paramètres de pagination, tels que  
-  # page page et pageSize, sont généralement inclus dans l'URL en tant que query parameters pour plus de clarté et de simplicité.
+  parameters:
+    pageQueryPagination:
+      name: page
+      in: query
+      schema:
+        type: integer
+        default: 1
 
-  # b- Non,il n'est pas nécessaire de gérer la pagination à travers les entêtes de la requête. L'utilisation de query parameters dans l'URL est 
-  # la norme pour spécifier la pagination, car elle rend les paramètres de pagination plus accessibles et compréhensibles pour les utilisateurs de   # 
+ 

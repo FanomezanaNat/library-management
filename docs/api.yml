@@ -253,4 +253,13 @@ components:
         type: integer
         default: 50
 
-   
+    QueryPagination:
+      name: QueryPagination
+      in: query
+      schema:
+        properties:
+          page:
+        $ref: "#/components/parameters/pageQueryPagination"
+        pageSize:
+          $ref: "#/components/parameters/pageSizeQueryPagination"
+    

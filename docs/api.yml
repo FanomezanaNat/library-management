@@ -244,7 +244,21 @@ components:
           $ref: "#/components/schemas/status"
         body:
           $ref: "#/components/schemas/body"
-
+    Response200:
+      allOf:
+        - $ref: "#/components/schemas/BaseResponse"
+    Response400:
+      allOf:
+        - $ref: "#/components/schemas/BaseResponse"
+    Response403:
+      allOf:
+        - $ref: "#/components/schemas/BaseResponse"
+    Response500:
+      allOf:
+        - $ref: "#/components/schemas/BaseResponse"
+      
+      
+      
     
 
   parameters:

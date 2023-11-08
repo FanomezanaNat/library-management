@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: Library API
-  version: 1.1.0
+  version: 1.2.0
   description: STD22005
 servers:
   - url: https://library.com
@@ -263,4 +263,4 @@ components:
   # page page et pageSize, sont généralement inclus dans l'URL en tant que query parameters pour plus de clarté et de simplicité.
 
   # b- Non,il n'est pas nécessaire de gérer la pagination à travers les entêtes de la requête. L'utilisation de query parameters dans l'URL est 
-  # la norme pour spécifier la pagination, car elle rend les paramètres de pagination plus accessibles et compréhensibles pour les utilisateurs de   # l'API
+  # la norme pour spécifier la pagination, car elle rend les paramètres de pagination plus accessibles et compréhensibles pour les utilisateurs de   # 

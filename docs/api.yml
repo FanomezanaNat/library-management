@@ -18,6 +18,7 @@ paths:
       description: The returned books are ordered by updated datetime.
       operationId: getBooks
       parameters:
+        - $ref: "#/components/parameters/QueryPagination"
         - in: query
           name: bookName
           description: Filter return books by given name
@@ -126,24 +127,14 @@ paths:
       responses:
         204:
           description: author deleted
-  /authors/page/{page}/size/{size}:
+  /authors/{pathPagination}:
     get:
       summary: retrieve authors with pagination
       tags:
         - "authors"
       parameters:
-        - in: path
-          name: page
-          schema:
-            type: integer
-            default: 1
-          required: true
-        - in: path
-          name: pageSize
-          schema:
-            type: integer
-            default: 50
-          required: true
+        - $ref: "#/components/parameters/PathPagination"
+       
       responses:
         200:
           description: OK
@@ -248,7 +239,22 @@ components:
         properties:
           page:
             type: integer
-            default: 1
+            default : 1
           pageSize:
             type: integer
-            default: 50
+            default : 50
+            
+    PathPagination:
+      name: PathPagination
+      in: path
+      required: true
+      schema:
+        type: object
+        properties:
+          page:
+            type: integer
+            default : 1
+          size:
+            type: integer
+            default : 50
+          

@@ -127,7 +127,7 @@ paths:
       responses:
         204:
           description: author deleted
-  /authors/{pathPagination}:
+  /authors/{PathPagination}:
     get:
       summary: retrieve authors with pagination
       tags:

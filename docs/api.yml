@@ -127,6 +127,8 @@ paths:
       responses:
         204:
           description: author deleted
+
+  
   /authors/{PathPagination}:
     get:
       summary: retrieve authors with pagination
@@ -181,6 +183,29 @@ paths:
           description: Authors for books updated successfully
         404:
           description: authors or books not found
+   
+  /books/import:
+     post:
+      summary: return the list of imported books in JSON or Excel
+      operationId: booksImported
+      requestBody:
+        content:
+          application/json:
+            schema: 
+              type: array
+              items:
+                $ref: "#/components/schemas/Book"
+          application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/Book"
+
+
+      responses:
+        200:
+          $ref: "#/components/responses/200"
+
 components:
   schemas:
     Book:

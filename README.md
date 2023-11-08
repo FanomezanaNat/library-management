@@ -5,7 +5,7 @@ This OpenAPI spec defines the Library API, allowing you to manage books and auth
 ## API Details
 
 - **Title:** Library API
-- **Version:** 1.1.0
+- **Version:** 1.2.0
 - **Description:** STD22005
 - **Base URL:** [https://library.com](https://library.com)
 

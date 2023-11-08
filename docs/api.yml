@@ -205,7 +205,27 @@ paths:
       responses:
         200:
           $ref: "#/components/responses/200"
+  /authors/import:
+     post:
+      summary: return the list imported of Author in JSON or Excel
+      operationId: AuthorImport
+      requestBody:
+        content:
+          application/json:
+            schema: 
+              type: array
+              items:
+                $ref: "#/components/schemas/Author"
+          application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/Author"
 
+
+      responses:
+        200:
+          $ref: "#/components/responses/200"
 components:
   schemas:
     Book:

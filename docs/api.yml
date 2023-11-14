@@ -128,7 +128,6 @@ paths:
         204:
           description: author deleted
 
-  
   /authors/{PathPagination}:
     get:
       summary: retrieve authors with pagination
@@ -136,7 +135,7 @@ paths:
         - "authors"
       parameters:
         - $ref: "#/components/parameters/PathPagination"
-       
+
       responses:
         200:
           description: OK
@@ -183,15 +182,15 @@ paths:
           description: Authors for books updated successfully
         404:
           description: authors or books not found
-   
+
   /books/import:
-     post:
+    post:
       summary: return the list of imported books in JSON or Excel
       operationId: booksImported
       requestBody:
         content:
           application/json:
-            schema: 
+            schema:
               type: array
               items:
                 $ref: "#/components/schemas/Book"
@@ -201,18 +200,17 @@ paths:
               items:
                 $ref: "#/components/schemas/Book"
 
-
       responses:
         200:
-          $ref: "#/components/responses/200"
+          $ref: "#/components/responses/BookList200"
   /authors/import:
-     post:
+    post:
       summary: return the list imported of Author in JSON or Excel
       operationId: AuthorImport
       requestBody:
         content:
           application/json:
-            schema: 
+            schema:
               type: array
               items:
                 $ref: "#/components/schemas/Author"
@@ -222,10 +220,9 @@ paths:
               items:
                 $ref: "#/components/schemas/Author"
 
-
       responses:
         200:
-          $ref: "#/components/responses/200"
+          $ref: "#/components/responses/BookList200"
 components:
   schemas:
     Book:
@@ -273,7 +270,7 @@ components:
           type: string
         authorId:
           type: string
-    status: 
+    status:
       type: object
       properties:
         code:
@@ -289,22 +286,43 @@ components:
           $ref: "#/components/schemas/status"
         body:
           $ref: "#/components/schemas/body"
-    Response200:
+    badRequestBody:
       allOf:
         - $ref: "#/components/schemas/BaseResponse"
-    Response400:
+          body: {}
+          example:
+            code: 400
+            description: bad request
+    forbiddenRequestBody:
       allOf:
         - $ref: "#/components/schemas/BaseResponse"
-    Response403:
+          body: {}
+          example:
+            code: 403
+            description: forbidden
+    internalServerError:
       allOf:
         - $ref: "#/components/schemas/BaseResponse"
-    Response500:
+          example:
+            code: 500
+            description: internal server error
+    BookList200:
       allOf:
         - $ref: "#/components/schemas/BaseResponse"
-      
-      
-      
-    
+      properties:
+        body:
+          type: array
+          items:
+            $ref: "#/components/schemas/Book"
+    AuthorList200:
+      allOf:
+        - $ref: "#/components/schemas/BaseResponse"
+      properties:
+        body: 
+          type: array 
+          items:
+            $ref: "#/components/schemas/Author"
+          
 
   parameters:
     QueryPagination:
@@ -316,11 +334,11 @@ components:
         properties:
           page:
             type: integer
-            default : 1
+            default: 1
           pageSize:
             type: integer
-            default : 50
-            
+            default: 50
+
     PathPagination:
       name: PathPagination
       in: path
@@ -330,25 +348,17 @@ components:
         properties:
           page:
             type: integer
-            default : 1
+            default: 1
           size:
             type: integer
-            default : 50fanomezana@X555LPB:~/Vidéos/library-management/docs$ 
+            default: 50
   responses:
-    200:
-      $ref: "#/components/schemas/Response200"
-      description: operation successfully
+    "BookList200":
+      $ref: "#/components/schemas/BookList200"
+      description: return list of filtered book
     400:
-      $ref: "#/components/schemas/Response400"
-      description: Bad resquest
+      $ref: "#/components/schemas/badRequestBody"
     403:
-      $ref: "#/components/schemas/Response403"
-      description: Forbidden
+      $ref: "#/components/schemas/forbiddenRequestBody"
     500:
-      $ref: "#/components/schemas/Response500"
-      description: Internal server error
-
-
-
-
-    
+      $ref: "#/components/schemas/internalServerError"
